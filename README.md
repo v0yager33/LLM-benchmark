@@ -4,13 +4,7 @@ It supports various LLM inference frameworks, including vLLM，and supports moni
 All monitoring configurations can be adjusted through the command line.  
 
 
-## Example - Online Benchmark
-
-First start serving your model
-
-```bash
-vllm serve NousResearch/Hermes-3-Llama-3.1-8B --disable-log-requests
-```
+## how to use this script
 
 Then run the benchmarking script
 
