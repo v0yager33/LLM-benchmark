@@ -1,0 +1,9 @@
+numpy
+tqdm
+transformers
+pynvml
+pandas
+aiohttp
+huggingface_hub
+vllm
+modelscope
