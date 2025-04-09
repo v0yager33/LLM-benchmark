@@ -29,7 +29,7 @@ For example
   
 ## benchmark
 
-Then run the benchmarking script
+Make sure the container and service are running correctly, then run the benchmarking script
 
 ```bash
 # download dataset
