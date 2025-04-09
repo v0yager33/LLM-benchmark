@@ -1,9 +1,11 @@
 numpy
+pandas
 tqdm
 transformers
 pynvml
-pandas
 aiohttp
 huggingface_hub
-vllm
+datasets
+Pillow
 modelscope
+vllm 
