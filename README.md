@@ -1,7 +1,8 @@
 # LLM-benchmark
-This is an improved code for the LLM benchmark, based on the vllm benchmark script.https://github.com/vllm-project/vllm/  
+This is an improved code for the LLM benchmark, based on the vllm benchmark script.
 It supports various LLM inference frameworks, including vLLM, and supports monitoring the GPU performance metrics of specified GPU IDs.  
 All monitoring configurations can be adjusted through the command line.  
+source: https://github.com/vllm-project/vllm/  
 
 ## Start a service  
 Use docker to start vllm container, meanwhile load a LLM file.  
