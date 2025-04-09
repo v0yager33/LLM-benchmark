@@ -8,7 +8,7 @@ Use docker to start vllm container, meanwhile load a LLM file.
 
 First grant execute permission to the script file
 ```bash
-  chmod +x start_vllm_container.sh
+chmod +x start_vllm_container.sh
 ```
   Build a container
 ```bash
