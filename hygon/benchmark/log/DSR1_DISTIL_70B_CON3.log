@@ -1,0 +1,60 @@
+==============================================
+Starting test: Backend=VLLM, Input length=4096, Concurrency=3
+Processor: Hygon-K100, Processor Number: 4
+Log file: /root/private_data/logs/benchmark_VLLM_4Unit_Len4096_Con3_20250421_181555.log
+==============================================
+nohup: ignoring input
+Namespace(backend='openai-chat', base_url=None, host='127.0.0.1', port=8000, endpoint='/v1/chat/completions', dataset_name='random', dataset_path=None, max_concurrency=3, model='/root/public_data/model/admin/DeepSeek-R1-Distill-Llama-70B', tokenizer=None, use_beam_search=False, num_prompts=64, logprobs=None, request_rate=inf, burstiness=1.0, seed=0, trust_remote_code=True, disable_tqdm=False, profile=False, save_result=False, save_detailed=False, metadata=None, result_dir=None, result_filename=None, ignore_eos=False, percentile_metrics='ttft,tpot,itl,e2el', metric_percentiles='99', goodput=None, sonnet_input_len=550, sonnet_output_len=150, sonnet_prefix_len=200, sharegpt_output_len=None, random_input_len=4096, random_output_len=1024, random_range_ratio=1.0, random_prefix_len=0, hf_subset=None, hf_split=None, hf_output_len=None, tokenizer_mode='auto', served_model_name='R1-70B', lora_modules=None)
+Starting initial single prompt test run...
+Initial test run completed. Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1.0 (Poisson)
+Max concurrency: 3
+  0%|          | 0/64 [00:00<?, ?it/s]  2%|▏         | 1/64 [00:20<21:00, 20.00s/it]  3%|▎         | 2/64 [00:24<10:58, 10.62s/it]  6%|▋         | 4/64 [00:35<07:26,  7.44s/it]  8%|▊         | 5/64 [00:44<07:57,  8.09s/it]  9%|▉         | 6/64 [00:48<06:35,  6.82s/it] 11%|█         | 7/64 [00:55<06:21,  6.70s/it] 12%|█▎        | 8/64 [01:02<06:20,  6.79s/it] 14%|█▍        | 9/64 [01:07<05:49,  6.35s/it] 16%|█▌        | 10/64 [01:20<07:32,  8.38s/it] 17%|█▋        | 11/64 [01:24<06:14,  7.07s/it] 19%|█▉        | 12/64 [01:31<06:02,  6.98s/it] 20%|██        | 13/64 [01:38<06:06,  7.19s/it] 22%|██▏       | 14/64 [01:47<06:22,  7.65s/it] 23%|██▎       | 15/64 [01:51<05:15,  6.45s/it] 25%|██▌       | 16/64 [02:00<05:42,  7.13s/it] 27%|██▋       | 17/64 [02:09<06:03,  7.73s/it] 28%|██▊       | 18/64 [02:13<05:04,  6.62s/it] 30%|██▉       | 19/64 [02:19<04:51,  6.48s/it] 31%|███▏      | 20/64 [02:29<05:36,  7.65s/it] 33%|███▎      | 21/64 [02:34<04:45,  6.65s/it] 34%|███▍      | 22/64 [02:43<05:20,  7.63s/it] 36%|███▌      | 23/64 [02:49<04:45,  6.97s/it] 38%|███▊      | 24/64 [03:00<05:27,  8.19s/it] 39%|███▉      | 25/64 [03:11<05:47,  8.91s/it] 41%|████      | 26/64 [03:21<05:50,  9.23s/it] 42%|████▏     | 27/64 [03:24<04:40,  7.57s/it] 44%|████▍     | 28/64 [03:29<04:01,  6.70s/it] 45%|████▌     | 29/64 [03:43<05:17,  9.08s/it] 47%|████▋     | 30/64 [03:47<04:10,  7.37s/it] 48%|████▊     | 31/64 [04:00<05:00,  9.12s/it] 50%|█████     | 32/64 [04:04<03:58,  7.45s/it] 52%|█████▏    | 33/64 [04:10<03:37,  7.01s/it] 53%|█████▎    | 34/64 [04:19<03:51,  7.71s/it] 55%|█████▍    | 35/64 [04:27<03:47,  7.86s/it] 56%|█████▋    | 36/64 [04:36<03:46,  8.10s/it] 58%|█████▊    | 37/64 [04:40<03:06,  6.92s/it] 59%|█████▉    | 38/64 [04:52<03:38,  8.41s/it] 61%|██████    | 39/64 [05:06<04:13, 10.15s/it] 62%|██████▎   | 40/64 [05:18<04:16, 10.68s/it] 64%|██████▍   | 41/64 [05:28<04:02, 10.56s/it] 66%|██████▌   | 42/64 [05:42<04:10, 11.39s/it] 67%|██████▋   | 43/64 [05:53<04:00, 11.44s/it] 69%|██████▉   | 44/64 [06:13<04:41, 14.08s/it] 70%|███████   | 45/64 [06:27<04:21, 13.78s/it] 72%|███████▏  | 46/64 [06:36<03:47, 12.63s/it] 73%|███████▎  | 47/64 [06:54<04:01, 14.19s/it] 75%|███████▌  | 48/64 [07:08<03:45, 14.07s/it] 77%|███████▋  | 49/64 [07:17<03:06, 12.46s/it] 78%|███████▊  | 50/64 [07:22<02:23, 10.27s/it] 80%|███████▉  | 51/64 [07:32<02:13, 10.27s/it] 81%|████████▏ | 52/64 [07:38<01:48,  9.04s/it] 83%|████████▎ | 53/64 [07:50<01:47,  9.75s/it] 84%|████████▍ | 54/64 [08:02<01:43, 10.40s/it] 86%|████████▌ | 55/64 [08:07<01:20,  8.94s/it] 88%|████████▊ | 56/64 [08:17<01:13,  9.22s/it] 89%|████████▉ | 57/64 [08:24<01:00,  8.61s/it] 91%|█████████ | 58/64 [08:34<00:53,  8.89s/it] 92%|█████████▏| 59/64 [08:37<00:36,  7.26s/it] 94%|█████████▍| 60/64 [08:48<00:32,  8.20s/it] 95%|█████████▌| 61/64 [08:57<00:25,  8.65s/it] 97%|█████████▋| 62/64 [09:01<00:14,  7.05s/it] 98%|█████████▊| 63/64 [09:08<00:07,  7.26s/it]100%|██████████| 64/64 [09:11<00:00,  5.89s/it]100%|██████████| 64/64 [09:11<00:00,  8.62s/it]
+
+=======================================================
+                   Benchmark Results                   
+=======================================================
+Successful requests:                           64
+Input length:                              4096
+Onput length:                              1024
+Duration:                                  551.63 s
+Input tokens:                              262144
+Output tokens:                               8456
+Request throughput:                          0.12 req/s
+Token throughput:                          490.55 tok/s
+-------------------------------------------------------
+              Time To First Token Metrics              
+-------------------------------------------------------
+Mean:                                        3115.82 ms
+Median:                                      2928.08 ms
+P99:                                         6813.07 ms
+-------------------------------------------------------
+             Time Per Output Token Metrics             
+-------------------------------------------------------
+Mean:                                         170.03 ms
+Median:                                       170.31 ms
+P99:                                          244.02 ms
+-------------------------------------------------------
+              Inter-Token Latency Metrics              
+-------------------------------------------------------
+Mean:                                         172.21 ms
+Median:                                       110.67 ms
+P99:                                         2993.89 ms
+-------------------------------------------------------
+              End-to-End Latency Metrics               
+-------------------------------------------------------
+Mean:                                       25650.77 ms
+Median:                                     18622.07 ms
+P99:                                        178247.19 ms
+-------------------------------------------------------
+          Additional Token Generation Metrics          
+-------------------------------------------------------
+Mean time except first token:               22048.92 ms
+Median time except first token:             15063.63 ms
+P99 time except first token:                175157.52 ms
+Mean other token time:                        170.78 ms
+Median other token time:                      110.54 ms
+P99 other token time:                        2993.87 ms
+-------------------------------------------------------
+Test completed.
