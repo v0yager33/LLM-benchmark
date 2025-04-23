@@ -1,12 +1,8 @@
-#!/bin/bash
-
+##!/bin/bash
 
 HIP_COUNT=$(hy-smi | grep -cE "^[0-9]+")
 HIP_COUNT=${HIP_COUNT:-0}  
 MODEL_PATH="/root/public_data/model/admin/Qwen/QwQ-32B"
-#MODEL_PATH="/root/public_data/model/admin/DeepSeek-R1-Distill-Llama-70B/"
-SERVERD_MODEL_NAME=my_model
-
 
 MODE="dev"
 if [[ "$1" == "--mode" ]]; then
@@ -28,13 +24,25 @@ if [ ! -d "$MODEL_PATH" ]; then
     exit 1
 fi
 
-vllm serve ${MODEL_PATH} --tensor-parallel-size ${HIP_COUNT} \
-	--max-model-len 8192 \
-	--served-model-name ${SERVERD_MODEL_NAME} \
-	--enforce-eager \
-	--gpu-memory-utilization 0.95 \
-	--enable-prefix-caching \
-	--max-num-seqs 8 \
-	--enable-chunked-prefill  \
-	--host 0.0.0.0 --disable-log-stats 
-#nohup vllm serve ${MODEL_PATH} --tensor-parallel-size ${HIP_COUNT} --max-model-len 8192 --served-model-name ${SERVERD_MODEL_NAME} --enforce-eager --gpu-memory-utilization 0.95 --swap-space 8 --enable-prefix-caching  --host 0.0.0.0 --disable-log-stats > vllm_serve.log 2>&1 &
+nohup vllm serve ${MODEL_PATH} --tensor-parallel-size ${HIP_COUNT} --max-model-len 8192 --enforce-eager --host 0.0.0.0 --disable-log-stats > vllm_serve.log 2>&1 &
+
+sleep 5
+
+if [ "$MODE" == "prod" ]; then
+    # 在生产模式下，持续输出日志
+    tail -f vllm_serve.log
+    
+elif [ "$MODE" == "dev" ]; then
+    # 在开发模式下，只输出简短的日志并且在启动后结束
+    tail -f vllm_serve.log | while read line; do
+        if [[ "$line" =~ ^INFO.* && ${#line} -lt 200 ]]; then
+            echo "$line"
+        fi
+        if [[ "$line" =~ Uvicorn\ running\ on.* ]]; then       
+            pkill -f "tail -f vllm_serve.log"
+            break
+        fi
+    done
+    
+    echo "服务已启动，可以继续运行后续单元格。"
+fi
