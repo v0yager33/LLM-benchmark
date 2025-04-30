@@ -1,5 +1,7 @@
+numpy
 aiohttp
 datasets
 transformers
 pillow
 pandas
+markupsafe
