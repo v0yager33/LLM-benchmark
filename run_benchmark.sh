@@ -1,26 +1,27 @@
 #!/bin/bash
 
 # 测试配置参数
-log_dir="/benchmark/logs/20250428"
-script_path="/benchmark/benchmark_serving.py"
-model_path="/data/DeepSeek-R1-Distill-Qwen-7B"
-served_model_name="llama_65b"
+log_dir="./logs"
+script_path="/storagedata/person_path/kxdu/test/huawei/benchmark_serving.py"
+model_path="/storagedata/common/models/Qwen/Qwen2_5-0_5B-Instruct"
+served_model_name="/storagedata/common/models/Qwen/Qwen2_5-0_5B-Instruct"
 endpoint="/v1/chat/completions"
 dataset="random"
-test_rounds=8
-port=1025
+test_rounds=2
+port=10025
 trust_remote_code="--trust-remote-code"
+payload="openai-chat"
 
-concurrencies=(8 16)
-input_lengths=(4096)
-output_lengths=(1024)
+concurrencies=(4 2)
+input_lengths=(256)
+output_lengths=(256)
 
 # log记录参数
-model_name="DeepSeek-R1-Distill-Qwen-7B"
-model_name_short="deepseekqwen7b"
-accelerator_type="Ascend-310P3"
-accelerator_number=4
-backend="Mindie"
+model_name="qwen0.5b"
+model_name_short="qwen0.5b"
+accelerator_type="4090"
+accelerator_number=1
+backend="vllm"
 
 # 脚本配置参数
 sleep_time=1
@@ -51,7 +52,7 @@ for concurrency in "${concurrencies[@]}"; do
             # 执行测试命令并将输出记录到日志文件
             nohup python3  "$script_path" \
                 --served-model-name "$served_model_name" \
-                --backend openai-chat \
+                --backend "$payload" \
                 --model "$model_path" \
                 --endpoint "$endpoint" \
                 --dataset-name "$dataset" \
